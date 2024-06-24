@@ -1,7 +1,11 @@
 <script setup lang="ts">
-    
+    import NavBar from './NavBar.vue';
+    import Home from './Home.vue';
 </script>
 
-<template src="./index.html"></template>
+<template>
+    <Home/>
+    <NavBar/>
+</template>
 
 <style scoped lang="scss" src="./style.scss"></style>
