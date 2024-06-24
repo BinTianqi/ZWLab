@@ -1,5 +1,4 @@
 <script lang="ts">
-import 'mdui/mdui.css';
 import 'mdui/components/button-icon.js';
 import '@mdui/icons/content-copy.js';
 export default {

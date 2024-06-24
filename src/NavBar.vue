@@ -1,5 +1,4 @@
 <script lang="ts">
-import 'mdui/mdui.css';
 import 'mdui/components/navigation-bar.js';
 import 'mdui/components/navigation-bar-item.js';
 import '@mdui/icons/format-list-bulleted.js';
@@ -46,4 +45,7 @@ export default {
 </mdui-navigation-bar>
 </template>
 
-<style scoped lang="scss" src="./style.scss"></style>
+<style scoped lang="scss">
+
+</style>
+

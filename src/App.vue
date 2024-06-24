@@ -8,4 +8,7 @@
     <NavBar/>
 </template>
 
-<style scoped lang="scss" src="./style.scss"></style>
+<style scoped lang="scss">
+
+</style>
+

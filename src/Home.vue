@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import 'mdui/mdui.css';
 import ZWItem from './ZWItem.vue';
 </script>
 
