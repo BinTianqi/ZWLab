@@ -32,5 +32,9 @@ div {
     justify-content: space-between;
     width: 14rem;
     text-align: center;
+    border: 1px solid;
+    border-radius: 1rem;
+    margin-bottom: 0.7rem;
+    padding: 0.3rem 1rem;
 }
 </style>

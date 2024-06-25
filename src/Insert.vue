@@ -81,18 +81,15 @@ function copy() {
 #dropdown {
     --z-index: 10;
 }
-.buttons_row {
-    width: 100%;
-    text-align: center;
-}
 mdui-menu {
     text-align: left;
 }
-mdui-text-field {
-    margin-bottom: 0.5rem;
+.buttons_row {
+    margin: 0px;
 }
 mdui-button {
-    margin: 0.2rem 0.5rem 0.5rem 0.5rem;
+    margin-bottom: 0.2rem;
+    margin-top: 0.3rem;
 }
 </style>
 

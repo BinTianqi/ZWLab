@@ -4,6 +4,8 @@ import NavBar from './NavBar.vue'
 import Home from './Home.vue'
 import Insert from './Insert.vue'
 import Remove from './Remove.vue'
+import Encode from './Encode.vue'
+import Decode from './Decode.vue'
 const instance = getCurrentInstance()
 const currentPage = ref('home')
 function switchPage() {
@@ -15,9 +17,11 @@ onMounted(()=>{
 </script>
 
 <template>
-    <Home :class="[currentPage === 'home'? 'page': 'hide']" ref="home"/>
-    <Insert :class="[currentPage === 'insert'? 'page': 'hide']" ref="insert"/>
-    <Remove :class="[currentPage === 'remove'? 'page': 'hide']" ref="remove"/>
+    <Home v-if="currentPage=='home'" class="page" ref="home"/>
+    <Insert v-if="currentPage=='insert'" class="page" ref="insert"/>
+    <Remove v-if="currentPage=='remove'" class="page" ref="remove"/>
+    <Encode v-if="currentPage=='encode'" class="page" ref="encode"/>
+    <Decode v-if="currentPage=='decode'" class="page" ref="decode"/>
     <NavBar ref="navbar"/>
 </template>
 
@@ -26,9 +30,6 @@ onMounted(()=>{
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-.hide {
-    display: none;
 }
 </style>
 
