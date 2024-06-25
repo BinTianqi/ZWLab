@@ -3,6 +3,7 @@ import { ref, onMounted, getCurrentInstance } from 'vue'
 import NavBar from './NavBar.vue'
 import Home from './Home.vue'
 import Insert from './Insert.vue'
+import Remove from './Remove.vue'
 const instance = getCurrentInstance()
 const currentPage = ref('home')
 function switchPage() {
@@ -16,6 +17,7 @@ onMounted(()=>{
 <template>
     <Home :class="[currentPage === 'home'? 'page': 'hide']" ref="home"/>
     <Insert :class="[currentPage === 'insert'? 'page': 'hide']" ref="insert"/>
+    <Remove :class="[currentPage === 'remove'? 'page': 'hide']" ref="remove"/>
     <NavBar ref="navbar"/>
 </template>
 

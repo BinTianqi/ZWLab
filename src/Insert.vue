@@ -9,6 +9,7 @@ import 'mdui/components/menu-item.js';
 import '@mdui/icons/arrow-drop-down.js';
 import '@mdui/icons/content-copy.js';
 import '@mdui/icons/clear.js';
+import '@mdui/icons/add.js';
 import type { Button } from 'mdui/components/button.js';
 import type { TextField } from 'mdui/components/text-field.js';
 import type { Dropdown } from 'mdui/components/dropdown.js';
@@ -27,7 +28,8 @@ function insert() {
     instance.refs.output.value = output;
     instance.refs.stat.innerText = 'Inserted ' + textArray.length + ' ' + selectedZW.value
 }
-function clearOutput() {
+function clearInput() {
+    instance.refs.input.value = ''
     instance.refs.output.value = ''
     instance.refs.stat.innerText = ''
 }
@@ -40,10 +42,18 @@ function copy() {
 <div>
     <h1>Insert</h1>
     <mdui-text-field variant="outlined" label="Input" autosize min-rows="4" ref="input"></mdui-text-field>
-    <div id="buttons_row">
+    <div class="buttons_row">
+        <mdui-button variant="text" @click="clearInput">
+            Clear
+            <mdui-icon-clear slot="icon"></mdui-icon-clear>
+        </mdui-button>
+        <mdui-button @click="insert">
+            Insert
+            <mdui-icon-add slot="icon"></mdui-icon-add>
+        </mdui-button>
         <mdui-dropdown id="dropdown">
             <mdui-button slot="trigger" variant="outlined">
-                {{selectedZW}}
+            {{selectedZW}}
                 <mdui-icon-arrow-drop-down slot="end-icon"></mdui-icon-arrow-drop-down>
             </mdui-button>
             <mdui-menu>
@@ -55,14 +65,9 @@ function copy() {
                 <mdui-menu-item @click="selectedZW='RTL mark'; zwChar='\u200f'">RTL mark</mdui-menu-item>
             </mdui-menu>
         </mdui-dropdown>
-        <mdui-button @click="insert">Insert</mdui-button>
     </div>
     <mdui-text-field readonly variant="outlined" label="Output" autosize min-rows="4" ref="output"></mdui-text-field>
-    <div id="buttons_row">
-        <mdui-button @click="clearOutput">
-            Clear output
-            <mdui-icon-clear slot="icon"></mdui-icon-clear>
-        </mdui-button>
+    <div class="buttons_row">
         <mdui-button @click="copy">
             Copy
             <mdui-icon-content-copy slot="icon"></mdui-icon-content-copy>
@@ -73,16 +78,21 @@ function copy() {
 </template>
 
 <style scoped lang="scss">
-#buttons_row {
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-}
 #dropdown {
     --z-index: 10;
 }
+.buttons_row {
+    width: 100%;
+    text-align: center;
+}
+mdui-menu {
+    text-align: left;
+}
+mdui-text-field {
+    margin-bottom: 0.5rem;
+}
 mdui-button {
-    margin-right: 0.5rem;
-    margin-left: 0.5rem;
+    margin: 0.2rem 0.5rem 0.5rem 0.5rem;
 }
 </style>
 
