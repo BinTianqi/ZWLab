@@ -1,4 +1,4 @@
-<script lang="ts">
+<script setup lang="ts">
 import 'mdui/components/navigation-bar.js';
 import 'mdui/components/navigation-bar-item.js';
 import '@mdui/icons/format-list-bulleted.js';
@@ -8,22 +8,12 @@ import '@mdui/icons/lock--outlined.js';
 import '@mdui/icons/lock-open--outlined.js';
 import type { NavigationBar } from 'mdui/components/navigation-bar.js';
 import type { NavigationBarItem } from 'mdui/components/navigation-bar-item.js';
-export default {
-    mounted() {
-        this.$refs.navbar.addEventListener('change', this.onChange);
-    },
-    methods: {
-        onChange() {
-            console.log(this.$refs.navbar.value);
-        }
-    }
-} 
 </script>
 
 <template>
-<mdui-navigation-bar value="home" label-visibility="labeled" ref="navbar">
-    <mdui-navigation-bar-item value="add">
-        Add
+<mdui-navigation-bar value="home" label-visibility="labeled" ref="navigation_bar">
+    <mdui-navigation-bar-item value="insert">
+        Insert
         <mdui-icon-add slot="icon"></mdui-icon-add>
     </mdui-navigation-bar-item>
     <mdui-navigation-bar-item value="remove">

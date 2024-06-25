@@ -1,37 +1,22 @@
-<script lang="ts">
-import 'mdui/components/button-icon.js';
-import '@mdui/icons/content-copy.js';
-export default {
-    props: {
-        label: String,
-        zwchar: String
-    },
-    mounted() {
-        this.$refs.copybutton.addEventListener('click', this.copy);
-    },
-    methods: {
-        copy() {
-            if(!navigator.clipboard) {
-                alert('Your browser does not support Clipboard API');
-            } else {
-                navigator.clipboard.writeText(this.zwchar).then(
-                    function() {
-                        alert('OK');
-                    },
-                    function(error) {
-                        alert('Failed to copy');
-                    }
-                )
-            }
-        }
-    }
+<script setup lang="ts">
+import { getCurrentInstance } from 'vue'
+import writeTextToClipboard from './utils.ts'
+import 'mdui/components/button-icon.js'
+import '@mdui/icons/content-copy.js'
+const instance = getCurrentInstance()
+const props = defineProps({
+    label: String,
+    zwchar: String
+})
+function copy() {
+    writeTextToClipboard(instance.props.zwchar)
 }
 </script>
 
 <template>
 <div>
     <h3>{{label}}</h3>
-    <mdui-button-icon ref="copybutton">
+    <mdui-button-icon @click="copy">
         <mdui-icon-content-copy></mdui-icon-content-copy>
     </mdui-button-icon>
 </div>

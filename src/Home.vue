@@ -3,7 +3,7 @@ import ZWItem from './ZWItem.vue';
 </script>
 
 <template>
-<div id="root">
+<div>
     <h1>Zero width lab</h1>
     <div>
         <ZWItem label="ZW space" zwchar="&#8203;"/>
@@ -17,12 +17,5 @@ import ZWItem from './ZWItem.vue';
 </template>
 
 <style scoped lang="scss">
-#root {
-    display: flex;
-    flex-direction: column;
-}
-#root > * {
-    margin-right: auto;
-    margin-left: auto;
-}
+
 </style>
