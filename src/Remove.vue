@@ -6,9 +6,7 @@ import 'mdui/components/text-field.js';
 import '@mdui/icons/content-copy.js';
 import '@mdui/icons/clear.js';
 import '@mdui/icons/remove.js';
-import type { Button } from 'mdui/components/button.js';
-import type { TextField } from 'mdui/components/text-field.js';
-const instance = getCurrentInstance();
+const instance = getCurrentInstance()!;
 function remove() {
     const input = instance.refs.input.value
     const zwChars = ['\u200b', '\u200c', '\u200d', '\u200e', '\u200f', '\ufeff']

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, getCurrentInstance } from 'vue';
+import { getCurrentInstance } from 'vue';
 import writeTextToClipboard from './utils.ts'
 import { encode } from './zero-width-lib.ts'
 import 'mdui/components/button.js';
@@ -7,9 +7,7 @@ import 'mdui/components/text-field.js';
 import '@mdui/icons/content-copy.js';
 import '@mdui/icons/clear.js';
 import '@mdui/icons/lock--outlined.js';
-import type { Button } from 'mdui/components/button.js';
-import type { TextField } from 'mdui/components/text-field.js';
-const instance = getCurrentInstance();
+const instance = getCurrentInstance()!;
 function encodeText() {
     const visible = instance.refs.visible.value
     const hidden = instance.refs.hidden.value

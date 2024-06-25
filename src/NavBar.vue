@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import 'mdui/components/navigation-bar.js';
-import 'mdui/components/navigation-bar-item.js';
-import '@mdui/icons/format-list-bulleted.js';
-import '@mdui/icons/add.js';
-import '@mdui/icons/remove.js';
-import '@mdui/icons/lock--outlined.js';
-import '@mdui/icons/lock-open--outlined.js';
-import type { NavigationBar } from 'mdui/components/navigation-bar.js';
-import type { NavigationBarItem } from 'mdui/components/navigation-bar-item.js';
+import 'mdui/components/navigation-bar.js'
+import 'mdui/components/navigation-bar-item.js'
+import '@mdui/icons/format-list-bulleted.js'
+import '@mdui/icons/add.js'
+import '@mdui/icons/remove.js'
+import '@mdui/icons/lock--outlined.js'
+import '@mdui/icons/lock-open--outlined.js'
 </script>
 
 <template>

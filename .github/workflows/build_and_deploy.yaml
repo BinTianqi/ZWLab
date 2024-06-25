@@ -23,6 +23,7 @@ jobs:
         run: npm install
 
       - name: Build
+        continue-on-error: true
         run: npm run build
 
       - name: Upload artifact

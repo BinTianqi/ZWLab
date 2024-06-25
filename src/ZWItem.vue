@@ -3,8 +3,8 @@ import { getCurrentInstance } from 'vue'
 import writeTextToClipboard from './utils.ts'
 import 'mdui/components/button-icon.js'
 import '@mdui/icons/content-copy.js'
-const instance = getCurrentInstance()
-const props = defineProps({
+const instance = getCurrentInstance()!
+defineProps({
     label: String,
     zwchar: String
 })

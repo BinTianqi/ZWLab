@@ -6,7 +6,7 @@ import Insert from './Insert.vue'
 import Remove from './Remove.vue'
 import Encode from './Encode.vue'
 import Decode from './Decode.vue'
-const instance = getCurrentInstance()
+const instance = getCurrentInstance()!
 const currentPage = ref('home')
 function switchPage() {
     currentPage.value = instance.refs.navbar.$refs.navigation_bar.value

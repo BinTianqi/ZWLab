@@ -71,7 +71,7 @@ export function encode(vis: string, hid: string) {
 	return e;
 }
 
-export function extract(t) {
+export function extract(t: string) {
 	let vis = '';
 	let hid = '';
 	for (const ch of t) {

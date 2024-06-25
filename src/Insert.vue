@@ -10,14 +10,9 @@ import '@mdui/icons/arrow-drop-down.js';
 import '@mdui/icons/content-copy.js';
 import '@mdui/icons/clear.js';
 import '@mdui/icons/add.js';
-import type { Button } from 'mdui/components/button.js';
-import type { TextField } from 'mdui/components/text-field.js';
-import type { Dropdown } from 'mdui/components/dropdown.js';
-import type { Menu } from 'mdui/components/menu.js';
-import type { MenuItem } from 'mdui/components/menu-item.js';
 const selectedZW = ref('ZW space');
 const zwChar = ref('\u200b');
-const instance = getCurrentInstance();
+const instance = getCurrentInstance()!
 function insert() {
     const input = instance.refs.input.value
     const textArray = input.matchAll(/./ugs).toArray()
