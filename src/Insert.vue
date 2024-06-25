@@ -36,7 +36,7 @@ function copy() {
 <template>
 <div>
     <h1>Insert</h1>
-    <mdui-text-field variant="outlined" label="Input" autosize min-rows="4" ref="input"></mdui-text-field>
+    <mdui-text-field label="Input" autosize min-rows="4" ref="input"></mdui-text-field>
     <div class="buttons_row">
         <mdui-button variant="text" @click="clearInput">
             Clear
@@ -61,7 +61,7 @@ function copy() {
             </mdui-menu>
         </mdui-dropdown>
     </div>
-    <mdui-text-field readonly variant="outlined" label="Output" autosize min-rows="4" ref="output"></mdui-text-field>
+    <mdui-text-field readonly label="Output" autosize min-rows="4" ref="output"></mdui-text-field>
     <div class="buttons_row">
         <mdui-button @click="copy">
             Copy

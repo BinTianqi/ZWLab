@@ -16,7 +16,7 @@ function copy() {
 <template>
 <div>
     <h3>{{label}}</h3>
-    <mdui-button-icon @click="copy">
+    <mdui-button-icon variant="tonal" @click="copy">
         <mdui-icon-content-copy></mdui-icon-content-copy>
     </mdui-button-icon>
 </div>

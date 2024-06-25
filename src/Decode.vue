@@ -30,7 +30,7 @@ function copyHidden() {
 <template>
 <div>
     <h1>Decode</h1>
-    <mdui-text-field variant="outlined" label="Input" autosize min-rows="2" ref="input"></mdui-text-field>
+    <mdui-text-field label="Input" autosize min-rows="2" ref="input"></mdui-text-field>
     <div class="buttons_row"> 
         <mdui-button variant="text" @click="clearInput">
             Clear
@@ -41,8 +41,8 @@ function copyHidden() {
             <mdui-icon-lock-open slot="icon"></mdui-icon-lock-open>
         </mdui-button>
     </div>
-    <mdui-text-field readonly variant="outlined" label="Visible text" autosize min-rows="2" ref="visible"></mdui-text-field>
-    <mdui-text-field readonly variant="outlined" label="Hidden text" autosize min-rows="2" ref="hidden"></mdui-text-field>
+    <mdui-text-field readonly label="Visible text" autosize min-rows="2" ref="visible"></mdui-text-field>
+    <mdui-text-field readonly label="Hidden text" autosize min-rows="2" ref="hidden"></mdui-text-field>
     <div class="buttons_row">
         <mdui-button @click="copyVisible">
             Copy visible

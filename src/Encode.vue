@@ -27,8 +27,8 @@ function copy() {
 <template>
 <div>
     <h1>Encode</h1>
-    <mdui-text-field variant="outlined" label="Visible text" autosize min-rows="2" ref="visible"></mdui-text-field>
-    <mdui-text-field variant="outlined" label="Hidden text" autosize min-rows="2" ref="hidden"></mdui-text-field>
+    <mdui-text-field label="Visible text" autosize min-rows="2" ref="visible"></mdui-text-field>
+    <mdui-text-field label="Hidden text" autosize min-rows="2" ref="hidden"></mdui-text-field>
     <div class="buttons_row"> 
         <mdui-button variant="text" @click="clearInput">
             Clear
@@ -39,7 +39,7 @@ function copy() {
             <mdui-icon-lock--outlined slot="icon"></mdui-icon-lock--outlined>
         </mdui-button>
     </div>
-    <mdui-text-field readonly variant="outlined" label="Output" autosize min-rows="2" ref="output"></mdui-text-field>
+    <mdui-text-field readonly label="Output" autosize min-rows="2" ref="output"></mdui-text-field>
     <div class="buttons_row">
         <mdui-button @click="copy">
             Copy
