@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, getCurrentInstance } from 'vue'
 import NavBar from './NavBar.vue'
+import NavRail from './NavRail.vue'
 import Home from './Home.vue'
 import Insert from './Insert.vue'
 import Remove from './Remove.vue'
@@ -8,11 +9,14 @@ import Encode from './Encode.vue'
 import Decode from './Decode.vue'
 const instance = getCurrentInstance()!
 const currentPage = ref('home')
+var nav = ref('navbar')
+if(window.screen.height < window.screen.width) {    nav.value = 'navrail'
+}
 function switchPage() {
-    currentPage.value = instance.refs.navbar.$refs.navigation_bar.value
+    currentPage.value = instance.refs[nav.value].$refs[nav.value].value
 }
 onMounted(()=>{
-    instance.refs.navbar.$refs.navigation_bar.addEventListener('change', switchPage)
+    instance.refs[nav.value].$refs[nav.value].addEventListener('change', switchPage)
 })
 </script>
 
@@ -22,7 +26,8 @@ onMounted(()=>{
     <Remove v-if="currentPage=='remove'" class="page" ref="remove"/>
     <Encode v-if="currentPage=='encode'" class="page" ref="encode"/>
     <Decode v-if="currentPage=='decode'" class="page" ref="decode"/>
-    <NavBar ref="navbar"/>
+    <NavRail v-if="nav=='navrail'" ref="navrail"/>
+    <NavBar v-if="nav=='navbar'" ref="navbar"/>
 </template>
 
 <style scoped lang="scss">
