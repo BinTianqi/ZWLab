@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, getCurrentInstance } from 'vue';
+import { getCurrentInstance } from 'vue';
 import writeTextToClipboard from './utils.ts'
 import { decode } from './zero-width-lib.ts'
 import 'mdui/components/button.js';
