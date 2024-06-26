@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, getCurrentInstance } from 'vue'
+import { ref, watch, onMounted, getCurrentInstance } from 'vue'
 import NavBar from './NavBar.vue'
 import NavRail from './NavRail.vue'
 import Home from './Home.vue'
@@ -10,6 +10,7 @@ import Decode from './Decode.vue'
 const instance = getCurrentInstance()!
 const currentPage = ref('home')
 var nav = ref('navbar')
+document.getElementById('html').className = window.matchMedia("(prefers-color-scheme: dark)").matches? 'mdui-theme-dark': 'mdui-theme-light'
 if(window.screen.height < window.screen.width) {    nav.value = 'navrail'
 }
 function switchPage() {
