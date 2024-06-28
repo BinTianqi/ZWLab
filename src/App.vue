@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, onMounted, getCurrentInstance } from 'vue'
+import { ref, onMounted, getCurrentInstance } from 'vue'
 import NavBar from './NavBar.vue'
 import NavRail from './NavRail.vue'
 import Home from './Home.vue'
