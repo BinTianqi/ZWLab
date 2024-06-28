@@ -11,8 +11,7 @@ const instance = getCurrentInstance()!
 const currentPage = ref('home')
 var nav = ref('navbar')
 document.getElementById('html')!.className = window.matchMedia("(prefers-color-scheme: dark)").matches? 'mdui-theme-dark': 'mdui-theme-light'
-if(window.screen.height < window.screen.width) {    nav.value = 'navrail'
-}
+if(window.screen.height < window.screen.width) { nav.value = 'navrail' }
 function switchPage() {
     currentPage.value = instance.refs[nav.value].$refs[nav.value].value
 }

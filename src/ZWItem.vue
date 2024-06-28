@@ -9,7 +9,7 @@ defineProps({
     zwchar: String
 })
 function copy() {
-    writeTextToClipboard(instance.props.zwchar)
+    writeTextToClipboard(instance.props.zwchar as string)
 }
 </script>
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getCurrentInstance, onMounted, ouMounted } from 'vue';
+import { getCurrentInstance, onMounted } from 'vue';
 import writeTextToClipboard from './utils.ts';
 import 'mdui/components/button.js';
 import 'mdui/components/text-field.js';
@@ -11,16 +11,18 @@ import '@mdui/icons/clear.js';
 import '@mdui/icons/remove.js';
 import '@mdui/icons/expand-circle-down--outlined.js';
 import 'mdui/components/list-item.js';
+import type { Checkbox } from 'mdui/components/checkbox.js';
+import type { TextField } from 'mdui/components/text-field.js';
 const instance = getCurrentInstance()!;
 function remove() {
-    const input = instance.refs.input.value
+    const input = (instance.refs.remove_input as TextField).value
     const zwChars = Array<String>()
-    if(instance.refs.zw_zwsp.checked) { zwChars.push('\u200b') }
-    if(instance.refs.zw_zwnbsp.checked) { zwChars.push('\ufeff') }
-    if(instance.refs.zw_zwnj.checked) { zwChars.push('\u200c') }
-    if(instance.refs.zw_zwj.checked) { zwChars.push('\u200d') }
-    if(instance.refs.zw_ltr.checked) { zwChars.push('\u200e') }
-    if(instance.refs.zw_rtl.checked) { zwChars.push('\u200f') }
+    if((instance.refs.remove_zw_zwsp as Checkbox).checked) { zwChars.push('\u200b') }
+    if((instance.refs.remove_zw_zwnbsp as Checkbox).checked) { zwChars.push('\ufeff') }
+    if((instance.refs.remove_zw_zwnj as Checkbox).checked) { zwChars.push('\u200c') }
+    if((instance.refs.remove_zw_zwj as Checkbox).checked) { zwChars.push('\u200d') }
+    if((instance.refs.remove_zw_ltr as Checkbox).checked) { zwChars.push('\u200e') }
+    if((instance.refs.remove_zw_rtl as Checkbox).checked) { zwChars.push('\u200f') }
     var count = 0
     var output = ''
     Array.from(input).forEach(item => {
@@ -29,21 +31,21 @@ function remove() {
         } else {
             output += item
         }
-    })
-    instance.refs.output.value = output;
-    instance.refs.stat.innerText = 'Removed ' + count + ' ZW characters'
+    });
+    (instance.refs.remove_output as TextField).value = output;
+    (instance.refs.remove_stat as HTMLElement).innerText = 'Removed ' + count + ' ZW characters'
 }
 function clearInput() {
-    instance.refs.input.value = ''
-    instance.refs.output.value = ''
-    instance.refs.stat.innerText = ''
+    (instance.refs.remove_input as TextField).value = '';
+    (instance.refs.remove_output as TextField).value = '';
+    (instance.refs.remove_stat as HTMLElement).innerText = '';
 }
 function copy() {
-    writeTextToClipboard(instance.refs.output.value);
+    writeTextToClipboard((instance.refs.remove_output as TextField).value);
 }
 onMounted(()=>{
     setTimeout(function() {
-        instance.refs.collapse.style['max-height'] = '20rem'
+        (instance.refs.collapse as HTMLElement).style['max-height' as any] = '20rem'
     }, 200)
 })
 </script>
@@ -51,7 +53,7 @@ onMounted(()=>{
 <template>
 <div>
     <h1>Remove</h1>
-    <mdui-text-field label="Input" autosize min-rows="4" ref="input"></mdui-text-field>
+    <mdui-text-field label="Input" autosize min-rows="4" ref="remove_input"></mdui-text-field>
     <div class="buttons_row"> 
         <mdui-button variant="text" @click="clearInput">
             Clear
@@ -68,22 +70,22 @@ onMounted(()=>{
                 <mdui-icon-expand-circle-down--outlined slot="icon"></mdui-icon-expand-circle-down--outlined>
                 Remove ZW chars
             </mdui-list-item>
-            <mdui-checkbox checked ref="zw_zwsp">ZW space</mdui-checkbox>
-            <mdui-checkbox checked ref="zw_zwnbsp">ZW no-break space</mdui-checkbox>
-            <mdui-checkbox checked ref="zw_zwnj">ZW non-joiner</mdui-checkbox>
-            <mdui-checkbox checked ref="zw_zwj">ZW joiner</mdui-checkbox>
-            <mdui-checkbox checked ref="zw_ltr">LTR mark</mdui-checkbox>
-            <mdui-checkbox checked ref="zw_rtl">RTL mark</mdui-checkbox>
+            <mdui-checkbox checked ref="remove_zw_zwsp">ZW space</mdui-checkbox>
+            <mdui-checkbox checked ref="remove_zw_zwnbsp">ZW no-break space</mdui-checkbox>
+            <mdui-checkbox checked ref="remove_zw_zwnj">ZW non-joiner</mdui-checkbox>
+            <mdui-checkbox checked ref="remove_zw_zwj">ZW joiner</mdui-checkbox>
+            <mdui-checkbox checked ref="remove_zw_ltr">LTR mark</mdui-checkbox>
+            <mdui-checkbox checked ref="remove_zw_rtl">RTL mark</mdui-checkbox>
         </mdui-collapse-item>
     </mdui-collapse>
-    <mdui-text-field readonly label="Output" autosize min-rows="4" ref="output"></mdui-text-field>
+    <mdui-text-field readonly label="Output" autosize min-rows="4" ref="remove_output"></mdui-text-field>
     <div class="buttons_row">
         <mdui-button @click="copy">
             Copy
             <mdui-icon-content-copy slot="icon"></mdui-icon-content-copy>
         </mdui-button>
     </div>
-    <p ref="stat"></p>
+    <p ref="remove_stat"></p>
 </div>
 </template>
 

@@ -6,6 +6,7 @@ import 'mdui/components/button-icon.js';
 import '@mdui/icons/dark-mode.js';
 import '@mdui/icons/info--outlined.js';
 import 'mdui/components/dialog.js';
+import type { Dialog } from 'mdui/components/dialog.js';
 const instance = getCurrentInstance()!
 const darkTheme = ref(false)
 darkTheme.value = document.getElementById('html')!.classList.contains('mdui-theme-dark')
@@ -14,7 +15,7 @@ function setTheme() {
     document.getElementById('html')!.className = darkTheme.value? 'mdui-theme-dark': 'mdui-theme-light'
 }
 function toggleDialog() {
-    instance.refs.dialog.open = !instance.refs.dialog.open
+    (instance.refs.dialog as Dialog).open = !(instance.refs.dialog as Dialog).open
 }
 </script>
 

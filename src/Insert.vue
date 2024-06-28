@@ -10,33 +10,34 @@ import '@mdui/icons/arrow-drop-down.js';
 import '@mdui/icons/content-copy.js';
 import '@mdui/icons/clear.js';
 import '@mdui/icons/add.js';
+import type { TextField } from 'mdui/components/text-field.js';
 const selectedZW = ref('ZW space');
 const zwChar = ref('\u200b');
 const instance = getCurrentInstance()!
 function insert() {
-    const input = instance.refs.input.value
-    const textArray = input.matchAll(/./ugs).toArray()
+    const input = (instance.refs.insert_input as TextField).value
+    const textArray = input.matchAll(/./ugs)
     var output = ''
-    textArray.forEach(item => {
-        output += item + zwChar.value
-    })
-    instance.refs.output.value = output;
-    instance.refs.stat.innerText = 'Inserted ' + textArray.length + ' ' + selectedZW.value
+    for(const each of textArray) {
+        output += each
+    }
+    (instance.refs.insert_output as TextField).value = output;
+    (instance.refs.insert_stat as TextField).innerText = 'Inserted ' + input.length + ' ' + selectedZW.value
 }
 function clearInput() {
-    instance.refs.input.value = ''
-    instance.refs.output.value = ''
-    instance.refs.stat.innerText = ''
+    (instance.refs.insert_input as TextField).value = '';
+    (instance.refs.insert_output as TextField).value = '';
+    (instance.refs.insert_stat as HTMLElement).innerText = ''
 }
 function copy() {
-    writeTextToClipboard(instance.refs.output.value);
+    writeTextToClipboard((instance.refs.insert_output as TextField).value);
 }
 </script>
 
 <template>
 <div>
     <h1>Insert</h1>
-    <mdui-text-field label="Input" autosize min-rows="4" ref="input"></mdui-text-field>
+    <mdui-text-field label="Input" autosize min-rows="4" ref="insert_input"></mdui-text-field>
     <div class="buttons_row">
         <mdui-button variant="text" @click="clearInput">
             Clear
@@ -61,14 +62,14 @@ function copy() {
             </mdui-menu>
         </mdui-dropdown>
     </div>
-    <mdui-text-field readonly label="Output" autosize min-rows="4" ref="output"></mdui-text-field>
+    <mdui-text-field readonly label="Output" autosize min-rows="4" ref="insert_output"></mdui-text-field>
     <div class="buttons_row">
         <mdui-button @click="copy">
             Copy
             <mdui-icon-content-copy slot="icon"></mdui-icon-content-copy>
         </mdui-button>
     </div>
-    <p ref="stat"></p>
+    <p ref="insert_stat"></p>
 </div>
 </template>
 
