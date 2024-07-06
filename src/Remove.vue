@@ -89,7 +89,7 @@ onMounted(()=>{
 </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
     mdui-collapse {
         max-height: 3.5rem;
     }

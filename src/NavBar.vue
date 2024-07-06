@@ -33,7 +33,7 @@ import '@mdui/icons/lock-open--outlined.js'
 </mdui-navigation-bar>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 
 </style>
 

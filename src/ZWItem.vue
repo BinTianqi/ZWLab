@@ -22,7 +22,7 @@ function copy() {
 </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 mdui-button-icon {
     margin-left: 1rem;
 }

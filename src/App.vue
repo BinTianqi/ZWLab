@@ -30,7 +30,7 @@ onMounted(()=>{
     <NavBar v-if="nav=='navbar'" ref="navbar"/>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .page {
     display: flex;
     flex-direction: column;

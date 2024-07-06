@@ -73,7 +73,7 @@ function copy() {
 </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 #dropdown {
     --z-index: 10;
 }
