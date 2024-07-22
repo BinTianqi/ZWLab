@@ -1,5 +1,5 @@
-export default function writeTextToClipboard(text: string): number {
-    if(text == '') {
+export default function writeTextToClipboard(text) {
+    if(text === '') {
         alert('Nothing to copy')
         return -1
     }

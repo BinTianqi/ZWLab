@@ -23,10 +23,10 @@ const Zero2QuinaryMap =
 		return acc;
 	}, {});
 
-function t2z(t: string): string {
+function t2z(t) {
 	let z = '';
 	for (let i = 0 ; i < t.length ; i++) {
-		const base10 = t.codePointAt(i)!;
+		const base10 = t.codePointAt(i);
 		const base5 = base10.toString(5);
 		let zero = '';
 		for (let j = 0 ; j < base5.length ; j++) {
@@ -38,7 +38,7 @@ function t2z(t: string): string {
 	return z;
 }
 
-function z2t(z: string) {
+function z2t(z) {
 	let t = '';
 	if (z.length === 0) {
 		return t;
@@ -54,7 +54,7 @@ function z2t(z: string) {
 	return t;
 }
 
-export function encode(vis: string, hid: string): string {
+export function encode(vis, hid) {
 	let e = '';
 	const hid2z = t2z(hid);
 	if (vis.length === 0) {
@@ -71,7 +71,7 @@ export function encode(vis: string, hid: string): string {
 	return e;
 }
 
-export function extract(t: string) {
+export function extract(t) {
 	let vis = '';
 	let hid = '';
 	for (const ch of t) {
@@ -84,14 +84,9 @@ export function extract(t: string) {
 	return { vis, hid }
 }
 
-export function decode(text: string): DecodedString {
+export function decode(text) {
     const extractText = extract(text)
     const visible = extractText.vis
     const hidden = z2t(extractText.hid)
 	return { vis: visible, hid: hidden }
-}
-
-export interface DecodedString {
-	vis: string,
-	hid: string
 }

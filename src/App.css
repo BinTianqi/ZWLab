@@ -1,0 +1,59 @@
+:root {
+  font-family: Roboto;
+}
+
+mdui-text-field {
+  margin-top: 0.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.buttons_row {
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+  width: 100%;
+  text-align: center;
+}
+
+mdui-button {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+h1 {
+  margin: 1rem;
+}
+
+#zw_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 14rem;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 1rem;
+  margin-bottom: 0.7rem;
+  padding: 0.3rem 1rem;
+}
+
+mdui-dropdown {
+  --z-index: 10;
+}
+
+mdui-menu {
+  text-align: left;
+}
+
+#home_title_bar {
+  display: flex;
+  align-items: center;
+}
+
+#home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#remove_zw_collapse {
+  max-height: 3.5rem;
+}
