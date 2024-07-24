@@ -6,17 +6,11 @@ import 'mdui/components/button-icon.js';
 import '@mdui/icons/dark-mode.js';
 import '@mdui/icons/info--outlined.js';
 import 'mdui/components/dialog.js';
-import {useEffect, useState} from "react";
 
-export default function Home() {
-    const [darkTheme, setDarkTheme] = useState(false)
+export default function Home({darkTheme, setDarkTheme}) {
     function toggleDialog() {
         document.getElementById("about_dialog").open = !document.getElementById("about_dialog").open
     }
-    useEffect(() => {
-        setDarkTheme(window.matchMedia("(prefers-color-scheme: dark)").matches)
-    }, [])
-    document.getElementById("html_root").className = darkTheme ? "mdui-theme-dark" : "mdui-theme-light"
     const darkThemeIcon = darkTheme ? <mdui-icon-light-mode></mdui-icon-light-mode> : <mdui-icon-dark-mode></mdui-icon-dark-mode>
     return (
         <div id="home">
