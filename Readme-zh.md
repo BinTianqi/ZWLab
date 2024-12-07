@@ -4,9 +4,9 @@
 
 ## 简介
 
-使用 Vue 制作
+这个项目已停止维护
 
-你可以在[zwlab.pages.dev](https://zwlab.pages.dev/)使用它
+构建：[zwlab.pages.dev](https://zwlab.pages.dev/)
 
 ## 功能
 

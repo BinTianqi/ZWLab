@@ -4,9 +4,9 @@
 
 ## Introduction
 
-Made with Vue
+This project has stopped maintenance
 
-View it on [zwlab.pages.dev](https://zwlab.pages.dev/)
+Build: [zwlab.pages.dev](https://zwlab.pages.dev/)
 
 ## Features
 
